@@ -13,7 +13,7 @@ An MCP (Model Context Protocol) server for [Atomic CRM](https://marmelab.com/ato
 - Visual Studio Code
 - Claude Desktop
 - Claude Code
-- ~~Claude Mobile~~
+- Claude Mobile
 - ~~ChatGPT Desktop~~
 - ~~ChatGPT Mobile~~
 
