@@ -10,10 +10,11 @@ An MCP (Model Context Protocol) server for [Atomic CRM](https://marmelab.com/ato
 
 ## Supported MCP Clients
 
-- Visual Studio Code
-- Claude Desktop
-- Claude Code
-- Claude Mobile
+- [ChatGPT](#adding-the-mcp-server-to-chat-gpt)
+- [Visual Studio Code](#adding-the-mcp-server-to-visual-studio-code)
+- [Claude Desktop](#adding-the-mcp-server-to-claude-desktop)
+- [Claude Code](#adding-the-mcp-server-to-claude-code)
+- [Claude Mobile](#adding-the-mcp-server-to-claude-desktop)
 - Cursor
 - Goose
 - Codex CLI
@@ -94,6 +95,19 @@ Now the MCP server is accessible at the ngrok URL.
 Deploy the MCP server to a hosting provider of your choice. Make sure to set the environment variables from your `.env` file in the hosting provider's settings.
 
 Note that the host must support IPV6, as Supabase Direct Database connection doesn't support IPV4. This expludes IPV4-only providers like Vercel or GitHub actions. 
+
+### Adding the MCP server to Chat GPT
+
+1. Enable the [Developer Mode](https://platform.openai.com/docs/guides/developer-mode) in [Settings → Apps → Advanced](https://chatgpt.com/apps#settings/Connectors/Advanced) settings
+2. Then, under [Settings → Apps](https://chatgpt.com/apps#settings/Connectors), click on the Create button
+3. Fill in the fields as follows:
+    - Name: Atomic CRM
+    - MCP Server URL: (your MCP Server URL, e.g., `MCP_URL/mcp`)
+    - Authentication: OAuth
+    - Check the "I understand and want to continue" checkbox
+4. Click "Create"
+5. A browser window opens for you to authenticate to Atomic CRM and allow access to Claude Code.
+6. Once authenticated, you can start using the Atomic CRM extension in Chat GPT
 
 ### Adding the MCP server to Visual Studio Code
 
