@@ -111,6 +111,8 @@ Note: Atomic CRM MCP works both on the web and mobile versions of ChatGPT. You n
 5. A browser window opens for you to authenticate to Atomic CRM and allow access to Claude Code.
 6. Once authenticated, you can start using the Atomic CRM extension in Chat GPT
 
+If you're on a workspace or organization account, you need to ask your admin to add and approve the custom connector before you can use it.
+
 ### Adding the MCP server to Claude.ai
 
 Note: Atomic CRM MCP works both on the web and mobile versions of Claude.You need a paid Claude.ai account to use custom connectors.
