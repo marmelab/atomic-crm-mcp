@@ -45,3 +45,11 @@ src/auth/               # JWT validation + OAuth metadata
 SUPABASE_URL=https://xxx.supabase.co  # For JWKS (auth)
 DATABASE_URL=postgresql://...          # Direct connection (data)
 ```
+
+## Service Key Authentication
+
+When `SUPABASE_SERVICE_KEY` env var is set, Bearer tokens matching this key bypass OAuth/JWKS validation. The middleware uses `timingSafeEqual` for constant-time comparison.
+
+- Auth flow: `middleware.ts` checks service key before JWT validation
+- Config: `config.ts` reads `SUPABASE_SERVICE_KEY` into optional `serviceKey` field
+- Security: Service role bypasses RLS — warn in all documentation

@@ -71,6 +71,23 @@ An MCP (Model Context Protocol) server for [Atomic CRM](https://marmelab.com/ato
    - Copy the **Direct Connection** string (it will have `[YOUR-PASSWORD]` placeholder)
    - Add it to your `.env` file as `DATABASE_URL`
    - Replace `[YOUR-PASSWORD]` with your database password. If you don't know it, go to **Database** → **Settings** and reset the password.
+### Service Key Authentication (Headless Agents)
+
+For headless AI agents and server-to-server integrations that cannot perform browser-based OAuth 2.1 flows, you can configure a Supabase service role key:
+
+1. Get your Supabase service role key
+   - Go to **Project Settings** → **API**
+   - Find the **service_role** key (secret)
+   - Add it to your `.env` file as `SUPABASE_SERVICE_KEY`
+
+```bash
+# In your .env file:
+SUPABASE_SERVICE_KEY=your-service-role-key-here
+```
+
+When the `SUPABASE_SERVICE_KEY` environment variable is set, the MCP server accepts it as a Bearer token for authentication, bypassing the OAuth flow.
+
+> ⚠️ **Warning**: The service role key bypasses Row Level Security (RLS). Use only in trusted server-to-server contexts (CI/CD, agent frameworks, automation). Never expose it in client-side code.
 
 ### Local MCP Server
 
