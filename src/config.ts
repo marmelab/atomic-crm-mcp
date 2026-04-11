@@ -47,5 +47,5 @@ export const config: Config = {
     jwksUrl: `${supabaseUrl}/auth/v1/.well-known/jwks.json`,
     discoveryUrl: `${supabaseUrl}/auth/v1/.well-known/openid-configuration`,
   },
-  serviceKey: getEnv('SUPABASE_SERVICE_KEY', ''),
+  serviceKey: process.env.SUPABASE_SERVICE_KEY || undefined,
 };
