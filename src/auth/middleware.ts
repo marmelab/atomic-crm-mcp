@@ -29,6 +29,14 @@ export async function authMiddleware(
 
   const token = authHeader.substring(7);
 
+  // Service key bypass for headless/agent authentication
+  // ⚠️ WARNING: Service key bypasses Row Level Security. Use only in trusted contexts.
+  if (config.serviceKey && token === config.serviceKey) {
+    req.auth = { userId: 'service_role', role: 'service_role' };
+    next();
+    return;
+  }
+
   try {
     const authInfo = await validateJWT(token);
     req.auth = authInfo;

@@ -10,6 +10,9 @@ export interface Config {
     jwksUrl: string;
     discoveryUrl: string;
   };
+  /** Optional Supabase service_role key for headless/agent authentication.
+   *  ⚠️ WARNING: Bypasses Row Level Security. Use only in trusted server-to-server contexts. */
+  serviceKey?: string;
 }
 
 function getRequiredEnv(key: string): string {
@@ -44,4 +47,5 @@ export const config: Config = {
     jwksUrl: `${supabaseUrl}/auth/v1/.well-known/jwks.json`,
     discoveryUrl: `${supabaseUrl}/auth/v1/.well-known/openid-configuration`,
   },
+  serviceKey: getEnv('SUPABASE_SERVICE_KEY', ''),
 };
